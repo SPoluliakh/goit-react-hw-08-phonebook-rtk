@@ -32,14 +32,14 @@ const LoginPage = lazy(() =>
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing, isLoggedIn } = useAuth();
+  const { isRefreshing } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(refreshUser());
     navigate(`/${location.pathname}`);
-  }, [dispatch, navigate, location.pathname, isLoggedIn]);
+  }, [dispatch, navigate, location.pathname]);
 
   return isRefreshing ? (
     <b
