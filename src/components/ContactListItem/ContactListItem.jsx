@@ -1,15 +1,11 @@
 import PropTypes from 'prop-types';
 import * as SC from './ContactListItem.styled';
-// import { useDispatch } from 'react-redux';
-import {
-  // deleteContacts,
-  useDeleteContactsMutation,
-} from 'Redux/contacts/contactsOperations';
+
+import { useDeleteContactsMutation } from 'Redux/contacts/contactsOperations';
 import ChangeContact from 'components/ChangeContact/ChangeContact';
 import { FcCancel, FcPhoneAndroid } from 'react-icons/fc';
 
 export const ContactListItem = ({ name, number, id }) => {
-  // const dispatch = useDispatch();
   const [deleteContact] = useDeleteContactsMutation();
 
   return (

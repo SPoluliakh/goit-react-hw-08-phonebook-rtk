@@ -1,6 +1,4 @@
-// import * as fetch from 'Utils/Api';
-// import { createAsyncThunk } from '@reduxjs/toolkit';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import axios from 'axios';
 
 const axiosBaseQuery =
@@ -70,51 +68,3 @@ export const {
   useDeleteContactsMutation,
   useChangeContactsMutation,
 } = contactsApi;
-
-// export const fetchContacts = createAsyncThunk(
-//   'contacts/fetchContacts',
-//   async (_, rejectWithValue) => {
-//     try {
-//       const contacts = await fetch.fetchContacts();
-//       return contacts;
-//     } catch (err) {
-//       rejectWithValue(err);
-//     }
-//   }
-// );
-
-// export const deleteContacts = createAsyncThunk(
-//   'contacts/deleteContacts',
-//   async (id, rejectWithValue) => {
-//     try {
-//       const contact = await fetch.deleteContacts(id);
-//       return contact;
-//     } catch (err) {
-//       rejectWithValue(err);
-//     }
-//   }
-// );
-
-// export const postContacts = createAsyncThunk(
-//   'contacts/postContacts',
-//   async (newContact, rejectWithValue) => {
-//     try {
-//       const contact = await fetch.postContacts(newContact);
-//       return contact;
-//     } catch (err) {
-//       rejectWithValue(err);
-//     }
-//   }
-// );
-
-// export const changeContact = createAsyncThunk(
-//   'contacts/changeContact',
-//   async (newContact, rejectWithValue) => {
-//     try {
-//       const contact = await fetch.changeContact(newContact);
-//       return contact;
-//     } catch (err) {
-//       rejectWithValue(err);
-//     }
-//   }
-// );

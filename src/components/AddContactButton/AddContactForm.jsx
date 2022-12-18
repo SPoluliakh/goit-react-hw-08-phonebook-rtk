@@ -7,19 +7,15 @@ import {
   FormInput,
   FormBtn,
 } from './AddContactForm.styled';
-// import { useSelector, useDispatch } from 'react-redux';
+
 import {
-  // postContacts,
   useFetchContactsQuery,
   usePostContactsMutation,
 } from 'Redux/contacts/contactsOperations';
-// import { getContacts } from '../../Redux/contacts/contactsSelectors';
-
 export const AddContactForm = ({ toggleModal }) => {
   const { data } = useFetchContactsQuery();
   const [postContact] = usePostContactsMutation();
-  // const contactList = useSelector(getContacts);
-  // const dispatch = useDispatch();
+
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 

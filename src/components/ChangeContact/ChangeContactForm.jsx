@@ -7,19 +7,16 @@ import {
   FormBtn,
 } from './ContactForm.styled';
 import PropTypes from 'prop-types';
-// import { useDispatch, useSelector } from 'react-redux';
+
 import {
-  // changeContact,
   useChangeContactsMutation,
   useFetchContactsQuery,
 } from 'Redux/contacts/contactsOperations';
-// import { getContacts } from 'Redux/contacts/contactsSelectors';
 
 export const ChangeContactForm = ({ id, toggleModal }) => {
-  // const contacts = useSelector(getContacts);
   const [setNewContact] = useChangeContactsMutation();
   const { data } = useFetchContactsQuery();
-  // const dispatch = useDispatch();
+
   const [name, setName] = useState(() => {
     const contact = data?.find(contact => contact.id === id);
     return contact?.name;
