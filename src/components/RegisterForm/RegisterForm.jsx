@@ -17,6 +17,7 @@ export const RegisterForm = () => {
     );
     form.reset();
   };
+
   return (
     <SC.RegisterForm onSubmit={handleSubmit} autoComplete="off">
       <SC.Wrapper>

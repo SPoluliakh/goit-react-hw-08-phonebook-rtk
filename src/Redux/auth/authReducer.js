@@ -15,27 +15,29 @@ export const authSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(register.pending, (state, _) => state)
-      .addCase(register.fulfilled, (state, action) => {
-        state.user = action.payload?.user;
-        state.token = action.payload?.token;
-        state.isLoggedIn = true;
-      })
       .addCase(register.rejected, (state, _) => {
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
       })
-      .addCase(logIn.pending, (state, _) => state)
-      .addCase(logIn.fulfilled, (state, action) => {
+      .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload?.user;
         state.token = action.payload?.token;
         state.isLoggedIn = true;
       })
+
+      .addCase(logIn.pending, (state, _) => state)
       .addCase(logIn.rejected, (state, _) => {
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
       })
+      .addCase(logIn.fulfilled, (state, action) => {
+        state.user = action.payload?.user;
+        state.token = action.payload?.token;
+        state.isLoggedIn = true;
+      })
+
       .addCase(logOut.pending, (state, _) => state)
       .addCase(logOut.fulfilled, (state, _) => {
         state.user = { name: null, email: null };
@@ -46,14 +48,14 @@ export const authSlice = createSlice({
       .addCase(refreshUser.pending, (state, _) => {
         state.isRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload;
-        state.isLoggedIn = true;
-        state.isRefreshing = false;
-      })
       .addCase(refreshUser.rejected, (state, _) => {
         state.user = { name: null, email: null };
         state.isLoggedIn = false;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
         state.isRefreshing = false;
       }),
 });
