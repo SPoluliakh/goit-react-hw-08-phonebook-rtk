@@ -6,6 +6,7 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const user = await fetch.register(credentials);
+
       return user;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);
@@ -18,7 +19,6 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const user = await fetch.login(credentials);
-
       return user;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);
