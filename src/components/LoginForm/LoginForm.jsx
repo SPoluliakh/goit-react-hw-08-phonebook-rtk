@@ -1,9 +1,13 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'Redux/auth/authOperations';
 import * as SC from './LoginForm.styled';
+// import { useAuth } from 'components/hooks/useAuth';
+
+// import { toast } from 'react-toastify';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  // const { error } = useAuth;
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -15,6 +19,10 @@ export const LoginForm = () => {
       })
     );
     form.reset();
+    // console.log(error);
+    // if (error) {
+    //   toast.error(error);
+    // }
   };
   return (
     <SC.LoginForm onSubmit={handleSubmit} autoComplete="off">

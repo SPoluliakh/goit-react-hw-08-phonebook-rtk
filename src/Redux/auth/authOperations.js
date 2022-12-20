@@ -1,5 +1,6 @@
 import * as fetch from 'Utils/Api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -25,6 +26,7 @@ export const logIn = createAsyncThunk(
       return user;
     } catch (error) {
       if (error) {
+        toast.error('Name or email error');
         throw new Error();
       }
       thunkAPI.rejectWithValue(error.message);
