@@ -24,7 +24,7 @@ export const Filter = () => {
           name="filter"
           value={filterList}
           autoComplete="off"
-          placeholder="Name"
+          placeholder="Enter name"
           onChange={evt => dispatch(filterContact(evt.target.value))}
         />
       </Box>

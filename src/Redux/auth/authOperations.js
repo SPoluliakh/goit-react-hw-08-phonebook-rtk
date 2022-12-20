@@ -9,6 +9,9 @@ export const register = createAsyncThunk(
 
       return user;
     } catch (error) {
+      if (error) {
+        throw new Error();
+      }
       thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -21,6 +24,9 @@ export const logIn = createAsyncThunk(
       const user = await fetch.login(credentials);
       return user;
     } catch (error) {
+      if (error) {
+        throw new Error();
+      }
       thunkAPI.rejectWithValue(error.message);
     }
   }
