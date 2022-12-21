@@ -1,13 +1,24 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'Redux/auth/authOperations';
 import * as SC from './LoginForm.styled';
-// import { useAuth } from 'components/hooks/useAuth';
-
-// import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 export const LoginForm = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  // const { error } = useAuth;
+
+  const handlInputChange = evt => {
+    const field = evt.target;
+    switch (field.name) {
+      case 'email':
+        return setEmail(field.value);
+      case 'password':
+        return setPassword(field.value);
+      default:
+        return;
+    }
+  };
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -19,10 +30,6 @@ export const LoginForm = () => {
       })
     );
     form.reset();
-    // console.log(error);
-    // if (error) {
-    //   toast.error(error);
-    // }
   };
   return (
     <SC.LoginForm onSubmit={handleSubmit} autoComplete="off">
@@ -36,6 +43,8 @@ export const LoginForm = () => {
             id="email"
             type="email"
             name="email"
+            value={email}
+            onChange={handlInputChange}
             placeholder="LucasMoura@mail.com"
             required
           />
@@ -43,6 +52,8 @@ export const LoginForm = () => {
             id="password"
             type="password"
             name="password"
+            value={password}
+            onChange={handlInputChange}
             placeholder="**********"
             required
           />

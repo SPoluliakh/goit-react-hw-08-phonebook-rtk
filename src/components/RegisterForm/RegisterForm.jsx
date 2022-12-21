@@ -1,9 +1,28 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'Redux/auth/authOperations';
 import * as SC from './RegisterForm.styled';
 
 export const RegisterForm = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const dispatch = useDispatch();
+
+  const handlInputChange = evt => {
+    const field = evt.target;
+    switch (field.name) {
+      case 'name':
+        return setName(field.value);
+      case 'email':
+        return setEmail(field.value);
+      case 'password':
+        return setPassword(field.value);
+      default:
+        return;
+    }
+  };
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -31,6 +50,8 @@ export const RegisterForm = () => {
             id="name"
             type="text"
             name="name"
+            value={name}
+            onChange={handlInputChange}
             placeholder="Lucas Moura"
             required
           />
@@ -38,6 +59,8 @@ export const RegisterForm = () => {
             id="email"
             type="email"
             name="email"
+            value={email}
+            onChange={handlInputChange}
             placeholder="LucasMoura@mail.com"
             required
           />
@@ -45,6 +68,8 @@ export const RegisterForm = () => {
             id="password"
             type="password"
             name="password"
+            value={password}
+            onChange={handlInputChange}
             placeholder="**********"
             required
           />
