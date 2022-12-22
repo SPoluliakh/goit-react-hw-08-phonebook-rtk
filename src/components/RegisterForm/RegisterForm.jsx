@@ -24,6 +24,12 @@ export const RegisterForm = () => {
     }
   };
 
+  const resetForm = () => {
+    setEmail('');
+    setPassword('');
+    setName('');
+  };
+
   const handleSubmit = evt => {
     evt.preventDefault();
     const form = evt.currentTarget;
@@ -34,7 +40,7 @@ export const RegisterForm = () => {
         password: form.elements.password.value,
       })
     );
-    form.reset();
+    resetForm();
   };
 
   return (

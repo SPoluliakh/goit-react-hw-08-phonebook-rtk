@@ -20,6 +20,11 @@ export const LoginForm = () => {
     }
   };
 
+  const resetForm = () => {
+    setEmail('');
+    setPassword('');
+  };
+
   const handleSubmit = evt => {
     evt.preventDefault();
     const form = evt.currentTarget;
@@ -29,7 +34,7 @@ export const LoginForm = () => {
         password: form.elements.password.value,
       })
     );
-    form.reset();
+    resetForm();
   };
   return (
     <SC.LoginForm onSubmit={handleSubmit} autoComplete="off">
