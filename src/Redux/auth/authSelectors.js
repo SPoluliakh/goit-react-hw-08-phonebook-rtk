@@ -7,3 +7,5 @@ export const getUser = state => state.auth;
 export const selectUser = createDraftSafeSelector(getUser, state => state.user);
 
 export const selectIsRefreshing = state => state.auth.isRefreshing;
+
+export const selectToken = state => state.auth.token;

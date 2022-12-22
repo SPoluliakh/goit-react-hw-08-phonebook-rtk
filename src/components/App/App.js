@@ -1,5 +1,5 @@
-import { lazy, Suspense } from 'react';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAuth } from 'components/hooks/useAuth';
 import { useDispatch } from 'react-redux';
@@ -33,13 +33,10 @@ const LoginPage = lazy(() =>
 export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
-  const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(refreshUser());
-    navigate(`/${location.pathname}`);
-  }, [dispatch, navigate, location.pathname]);
+  }, [dispatch]);
 
   return isRefreshing ? (
     <b
@@ -51,37 +48,30 @@ export const App = () => {
       Page is refreshing ...
     </b>
   ) : (
-    <Suspense fallback={null}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
 
-          <Route
-            path="phoneBook"
-            element={
-              <PrivateRout redirectTo="/" component={<PhoneBookPage />} />
-            }
-          />
-          <Route
-            path="register"
-            element={
-              <RestrictedRout
-                redirectTo="/phoneBook"
-                component={<RegisterPage />}
-              />
-            }
-          />
-          <Route
-            path="logIn"
-            element={
-              <RestrictedRout
-                redirectTo="/phoneBook"
-                component={<LoginPage />}
-              />
-            }
-          />
-        </Route>
-      </Routes>
-    </Suspense>
+        <Route
+          path="phoneBook"
+          element={<PrivateRout redirectTo="/" component={<PhoneBookPage />} />}
+        />
+        <Route
+          path="register"
+          element={
+            <RestrictedRout
+              redirectTo="/phoneBook"
+              component={<RegisterPage />}
+            />
+          }
+        />
+        <Route
+          path="logIn"
+          element={
+            <RestrictedRout redirectTo="/phoneBook" component={<LoginPage />} />
+          }
+        />
+      </Route>
+    </Routes>
   );
 };
