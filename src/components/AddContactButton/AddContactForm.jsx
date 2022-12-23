@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box } from '../../Utils/Box';
-import {
-  ContactFrm,
-  FormLabel,
-  FormInput,
-  FormBtn,
-} from './AddContactForm.styled';
+import * as SC from './AddContactForm.styled';
 
 import {
   useFetchContactsQuery,
@@ -14,7 +8,7 @@ import {
 } from 'Redux/contacts/contactsOperations';
 export const AddContactForm = ({ toggleModal }) => {
   const { data } = useFetchContactsQuery();
-  const [postContact] = usePostContactsMutation();
+  const [postContact, { isLoading }] = usePostContactsMutation();
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -64,11 +58,11 @@ export const AddContactForm = ({ toggleModal }) => {
   };
 
   return (
-    <Box border="contactForm" padding={5} width="400px">
-      <ContactFrm onSubmit={handleSubmit}>
-        <FormLabel>
+    <SC.AddFormWrap>
+      <SC.ContactFrm onSubmit={handleSubmit}>
+        <SC.FormLabel>
           Name
-          <FormInput
+          <SC.FormInput
             value={name}
             onChange={handleInputChange}
             type="text"
@@ -77,11 +71,11 @@ export const AddContactForm = ({ toggleModal }) => {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-        </FormLabel>
+        </SC.FormLabel>
 
-        <FormLabel>
+        <SC.FormLabel>
           Number
-          <FormInput
+          <SC.FormInput
             value={number}
             onChange={handleInputChange}
             type="tel"
@@ -90,13 +84,18 @@ export const AddContactForm = ({ toggleModal }) => {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-        </FormLabel>
+        </SC.FormLabel>
 
-        <FormBtn variant="contained" aria-label="add contact" type="submit">
+        <SC.FormBtn
+          variant="contained"
+          aria-label="add contact"
+          type="submit"
+          disabled={isLoading}
+        >
           Add contact
-        </FormBtn>
-      </ContactFrm>
-    </Box>
+        </SC.FormBtn>
+      </SC.ContactFrm>
+    </SC.AddFormWrap>
   );
 };
 

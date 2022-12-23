@@ -12,8 +12,9 @@ export const ListItem = styled.li`
 
 export const ListItemText = styled.p`
   margin: ${p => p.theme.space[0]}px;
-  margin-right: ${p => p.theme.space[5]}px;
+
   font-size: ${p => p.theme.fontSizes.ml}px;
+  text-align: center;
 `;
 
 export const ListItemBtn = styled.button`

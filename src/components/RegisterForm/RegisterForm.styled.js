@@ -16,14 +16,23 @@ export const InputArea = styled.input`
   outline: none;
   border-bottom: 1px solid black;
   background-color: transparent;
-  width: 400px;
+  width: 200px;
+
+  @media (min-width: 768px) {
+    width: 400px;
+  }
+
   :not(:last-child) {
     margin-bottom: ${p => p.theme.space[4]}px;
   }
 `;
 
 export const LabelArea = styled.label`
-  font-size: ${p => p.theme.fontSizes.ml}px;
+  font-size: ${p => p.theme.fontSizes.m}px;
+  @media (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.ml}px;
+  }
+
   cursor: pointer;
   :not(:last-child) {
     margin-bottom: ${p => p.theme.space[4]}px;

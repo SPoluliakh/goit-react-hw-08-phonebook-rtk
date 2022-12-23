@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Box } from '../../Utils/Box';
 import {
   ContactFrm,
   FormLabel,
   FormInput,
   FormBtn,
+  AddFormWrap,
 } from './ContactForm.styled';
 import PropTypes from 'prop-types';
 
@@ -14,7 +14,7 @@ import {
 } from 'Redux/contacts/contactsOperations';
 
 export const ChangeContactForm = ({ id, toggleModal }) => {
-  const [setNewContact] = useChangeContactsMutation();
+  const [setNewContact, { isLoading }] = useChangeContactsMutation();
   const { data } = useFetchContactsQuery();
 
   const [name, setName] = useState(() => {
@@ -65,7 +65,7 @@ export const ChangeContactForm = ({ id, toggleModal }) => {
   };
 
   return (
-    <Box border="contactForm" padding={5} width="400px">
+    <AddFormWrap>
       <ContactFrm onSubmit={handleSubmit}>
         <FormLabel>
           Name
@@ -93,11 +93,16 @@ export const ChangeContactForm = ({ id, toggleModal }) => {
           />
         </FormLabel>
 
-        <FormBtn variant="contained" aria-label="add contact" type="submit">
+        <FormBtn
+          variant="contained"
+          aria-label="add contact"
+          type="submit"
+          disabled={isLoading}
+        >
           Change contact
         </FormBtn>
       </ContactFrm>
-    </Box>
+    </AddFormWrap>
   );
 };
 

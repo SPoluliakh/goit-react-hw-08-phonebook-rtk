@@ -1,6 +1,17 @@
 import styled from 'styled-components';
 import { Button } from '@mui/material';
 
+export const AddFormWrap = styled.div`
+  border: ${p => p.theme.borders.contactForm};
+  padding: ${p => p.theme.space[3]}px;
+  width: 220px;
+
+  @media (min-width: 768px) {
+    padding: ${p => p.theme.space[5]}px;
+    width: 400px;
+  }
+`;
+
 export const ContactFrm = styled.form`
   display: flex;
   flex-direction: column;

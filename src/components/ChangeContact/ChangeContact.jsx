@@ -5,7 +5,7 @@ import { ChangeContactForm } from './ChangeContactForm';
 import { FaUserEdit } from 'react-icons/fa';
 import * as SC from './ChangeContact.styled';
 
-const ChangeContact = ({ id }) => {
+export const ChangeContact = ({ id }) => {
   const [addContact, setAddContact] = useState(false);
 
   const toggleModal = () => {
@@ -25,8 +25,6 @@ const ChangeContact = ({ id }) => {
     </>
   );
 };
-
-export default ChangeContact;
 
 ChangeContact.propTypes = {
   id: PropTypes.string,
