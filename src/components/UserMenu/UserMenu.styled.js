@@ -9,7 +9,7 @@ export const WelcomeText = styled.p`
   font-weight: ${p => p.theme.fontWeights.medium};
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 500px) {
     display: block;
   }
 `;
