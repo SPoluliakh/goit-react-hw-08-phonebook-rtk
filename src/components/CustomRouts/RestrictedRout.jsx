@@ -4,7 +4,7 @@ import { useAuth } from 'components/hooks/useAuth';
 
 export const RestrictedRout = ({ component: Component, redirectTo = '/' }) => {
   const { isLoggedIn } = useAuth();
-  return isLoggedIn ? <Navigate to={redirectTo} /> : Component;
+  return isLoggedIn ? <Navigate to={redirectTo} replace /> : Component;
 };
 
 RestrictedRout.propTypes = {

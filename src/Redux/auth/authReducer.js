@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, logIn, logOut, refreshUser } from './authOperations';
 
-const initialState = {
+const initialState = Object.freeze({
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
-};
+});
 
 export const authSlice = createSlice({
   name: 'auth',
