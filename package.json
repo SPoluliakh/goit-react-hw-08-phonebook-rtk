@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-08-phonebook-rtk",
+  "name": "phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://SPoluliakh.github.io/goit-react-hw-08-phonebook-rtk/",
+  "homepage": "https://SPoluliakh.github.io/phonebook/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -58,11 +58,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SPoluliakh/goit-react-hw-08-phonebook-rtk.git"
+    "url": "git+https://github.com/SPoluliakh/phonebook.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SPoluliakh/goit-react-hw-08-phonebook-rtk/issues"
+    "url": "https://github.com/SPoluliakh/phonebook/issues"
   }
 }
