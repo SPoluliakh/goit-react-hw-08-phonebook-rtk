@@ -25,6 +25,13 @@ export const InputArea = styled.input`
   :not(:last-child) {
     margin-bottom: ${p => p.theme.space[4]}px;
   }
+
+  ::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, Caveat, Segoe UI, Roboto,
+      Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+      sans-serif;
+    font-size: 20px;
+  }
 `;
 
 export const LabelArea = styled.label`

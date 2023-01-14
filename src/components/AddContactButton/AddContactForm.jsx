@@ -91,6 +91,7 @@ export const AddContactForm = ({ toggleModal }) => {
           aria-label="add contact"
           type="submit"
           disabled={isLoading}
+          style={{ fontFamily: 'inherit' }}
         >
           Add contact
         </SC.FormBtn>

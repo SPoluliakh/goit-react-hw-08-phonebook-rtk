@@ -94,6 +94,7 @@ export const ChangeContactForm = ({ id, toggleModal }) => {
         </FormLabel>
 
         <FormBtn
+          style={{ fontFamily: 'inherit' }}
           variant="contained"
           aria-label="add contact"
           type="submit"

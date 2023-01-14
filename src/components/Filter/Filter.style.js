@@ -12,4 +12,10 @@ export const FindArea = styled.input`
   border-bottom: 1px solid black;
   background-color: transparent;
   width: 200px;
+  ::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, Caveat, Segoe UI, Roboto,
+      Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+      sans-serif;
+    font-size: 20px;
+  }
 `;

@@ -82,7 +82,11 @@ export const RegisterForm = () => {
         </SC.InnerWrapper>
       </SC.Wrapper>
 
-      <SC.RegisterButton variant="contained" type="submit">
+      <SC.RegisterButton
+        style={{ fontFamily: 'inherit' }}
+        variant="contained"
+        type="submit"
+      >
         Register
       </SC.RegisterButton>
     </SC.RegisterForm>

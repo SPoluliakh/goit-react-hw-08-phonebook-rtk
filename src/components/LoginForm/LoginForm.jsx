@@ -65,7 +65,11 @@ export const LoginForm = () => {
         </SC.InnerWrapper>
       </SC.Wrapper>
 
-      <SC.LoginButton variant="contained" type="submit">
+      <SC.LoginButton
+        style={{ fontFamily: 'inherit' }}
+        variant="contained"
+        type="submit"
+      >
         Log In
       </SC.LoginButton>
     </SC.LoginForm>

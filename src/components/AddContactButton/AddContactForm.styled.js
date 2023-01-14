@@ -25,6 +25,7 @@ export const FormLabel = styled.label`
 
 export const FormInput = styled.input`
   margin-top: ${p => p.theme.space[2]}px;
+  font-family: inherit;
 `;
 
 export const FormBtn = styled(Button)`

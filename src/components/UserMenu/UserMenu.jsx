@@ -11,6 +11,7 @@ export const UserMenu = () => {
     <Box display="flex" alignItems="center">
       <SC.WelcomeText>Welcome,{user.name} </SC.WelcomeText>
       <SC.LogOutButton
+        style={{ fontFamily: 'inherit' }}
         variant="contained"
         type="button"
         onClick={() => dispatch(logOut())}
