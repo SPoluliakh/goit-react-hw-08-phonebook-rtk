@@ -5,14 +5,26 @@ import { useAuth } from 'components/hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'Redux/auth/authOperations';
 import { Layout } from 'components/Layout/Layout';
-import { HomePage } from '../../Pages/HomePage/HomePage';
 import { PrivateRout } from 'components/CustomRouts/PrivateRoute';
 import { RestrictedRout } from 'components/CustomRouts/RestrictedRout';
+
+const HomePage = lazy(() =>
+  import('../../Pages/HomePage/HomePage').then(module => ({
+    ...module,
+    default: module.HomePage,
+  }))
+);
 
 const PhoneBookPage = lazy(() =>
   import('../../Pages/PhoneBook/PhoneBook').then(module => ({
     ...module,
     default: module.PhoneBookPage,
+  }))
+);
+const NotFoundPage = lazy(() =>
+  import('../../Pages/NotFoundPage/NotFoundPage').then(module => ({
+    ...module,
+    default: module.NotFoundPage,
   }))
 );
 
@@ -71,6 +83,7 @@ export const App = () => {
             <RestrictedRout redirectTo="/phoneBook" component={<LoginPage />} />
           }
         />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );
